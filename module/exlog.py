@@ -1,13 +1,21 @@
 import logging
 import datetime
 import os
+import platform
 
-logging.basicConfig(
-    format='[%(asctime)s][%(levelname)s][%(name)s:%(lineno)s] : %(message)s',
-    level=logging.DEBUG,
-    filename='C:/Users/admin/Desktop/taepyo_tarding/logging/trading.{:%Y%m%d}.log'.format(datetime.datetime.now()),
-    datefmt='%m-%d-%Y %I:%M:%S',
-)
+if platform.system() == "Windows": 
+  logging.basicConfig(
+      format='[%(asctime)s][%(levelname)s][%(name)s:%(lineno)s] : %(message)s',
+      level=logging.DEBUG,
+      datefmt='%m-%d-%Y %I:%M:%S'
+  )
+else :
+  logging.basicConfig(
+      format='[%(asctime)s][%(levelname)s][%(name)s:%(lineno)s] : %(message)s',
+      level=logging.DEBUG,
+      filename='/scslog/python/trading.{:%Y%m%d}.log'.format(datetime.datetime.now()),
+      datefmt='%m-%d-%Y %I:%M:%S'
+  )
 
 class ExLogger:
   def __init__(self, name, mode):

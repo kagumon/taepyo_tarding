@@ -1,5 +1,6 @@
 __pycache__/
 ./logging/*
+user_bin
 *.py[cod]
 *$py.class
 *.so
